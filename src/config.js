@@ -1,10 +1,10 @@
-const { CLIENT_ID, ISSUER, OKTA_TESTING_DISABLEHTTPSCHECK } = process.env
+const { CLIENT_ID, ISSUER, OKTA_TESTING_DISABLEHTTPSCHECK, REDIRECT_URI } = process.env
 
 export default {
   oidc: {
     clientId: CLIENT_ID,
     issuer: ISSUER,
-    redirectUri: 'https://okta-signin-widget.onrender.com/login/callback',
+    redirectUri: REDIRECT_URI,
     scopes: ['openid', 'profile', 'email'],
     pkce: true,
     testing: {

@@ -1,4 +1,0 @@
-CLIENT_ID=0oa1nzafr2DZhwGQg5d6
-ISSUER=https://dev-2756427.okta.com/oauth2/default
-OKTA_TESTING_DISABLEHTTPSCHECK=true
-REDIRECT_URI=http://localhost:8080/login/callback

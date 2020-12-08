@@ -25,6 +25,7 @@ const env = {};
     throw new Error(`Environment variable ${key} must be set. See README.md`);
   }
   env[key] = JSON.stringify(process.env[key]);
+  console.log(key + " :" + env[key]);
 });
 
 module.exports = {

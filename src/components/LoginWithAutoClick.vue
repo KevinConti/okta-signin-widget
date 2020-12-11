@@ -77,6 +77,7 @@ export default {
   },
   destroyed () {
     // Remove the widget from the DOM on path change
+    this.widget.off('afterRender')
     this.widget.remove()
   }
 }

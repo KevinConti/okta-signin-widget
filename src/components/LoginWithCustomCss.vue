@@ -24,14 +24,14 @@
 <script>
 import OktaSignIn from '@okta/okta-signin-widget'
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css'
-import '@/styles/cssOverride.css';
 import sampleConfig from '../config'
 
 export default {
   name: 'Login',
   mounted: function () {
     this.$nextTick(function () {
-      this.widget = new OktaSignIn({
+        addCustomStyles()
+        this.widget = new OktaSignIn({
         /**
          * Note: when using the Sign-In Widget for an OIDC flow, it still
          * needs to be configured with the base URL for your Okta Org. Here
@@ -68,11 +68,55 @@ export default {
           throw err
         }
       )
+
     })
   },
   destroyed () {
+    removeCustomStyles()
     // Remove the widget from the DOM on path change
     this.widget.remove()
   }
 }
+
+    // DEV NOTE:
+    // Normally, you don't need to do this through javascript. You'll be able to just import the css like normal
+    // However, for this demo we wanted css styles that affected ONLY this widget
+    // Since CSS is globally applied, that means that we needed to locally scope the css
+    // One option was to use Vue's `scoped` attributte, but that doesn't work for dynamically created HTML
+    // So, for the sake of being demo-able, this is the workaround used.
+    function addCustomStyles() {
+        let stylesheet = document.createElement('style');
+        stylesheet.type = 'text/css';
+        stylesheet.innerHTML = `
+        /* cssOverride.css */
+        #okta-sign-in {
+            width: 600px;
+        }
+
+        #okta-sign-in .sms-request-button {
+            width: 300px;
+        }
+
+        /* Invert the order of the send code button */
+        #okta-sign-in .mfa-verify-passcode .link-button {
+            float: left;
+        }
+
+        /* Invert the order of the enter code input */
+        #okta-sign-in .mfa-verify-passcode .auth-passcode {
+            float: right;
+        }
+        `
+        document.querySelector('style').parentNode.appendChild(stylesheet);
+    }
+
+    function removeCustomStyles() {
+        let stylesheets = document.querySelectorAll('style');
+        stylesheets.forEach(sheet => {
+            if (sheet.innerHTML.includes('cssOverride.css')){
+                sheet.parentNode.removeChild(sheet);
+            }
+        })
+    }
+
 </script>

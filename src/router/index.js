@@ -22,6 +22,8 @@ import ProfileComponent from '@/components/Profile'
 import MessagesComponent from '@/components/Messages'
 import LoginTextChangedComponent from '@/components/LoginTextChanged'
 import LoginWithAutoClickComponent from '@/components/LoginWithAutoClick'
+import LoginWithCustomBrandingComponent from '@/components/LoginWithCustomBranding'
+import LoginWithCustomCssComponent from '@/components/LoginWithCustomCss'
 
 import sampleConfig from '@/config'
 
@@ -46,6 +48,14 @@ const router = new Router({
     {
       path: '/loginWithAutoClick',
       component: LoginWithAutoClickComponent
+    },
+    {
+      path: '/loginWithCustomBranding',
+      component: LoginWithCustomBrandingComponent
+    },
+    {
+      path: '/loginWithCustomCss',
+      component: LoginWithCustomCssComponent
     },
     {
       path: '/login/callback',

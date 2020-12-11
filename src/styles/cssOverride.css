@@ -1,0 +1,17 @@
+#okta-sign-in {
+    width: 600px;
+}
+
+#okta-sign-in .sms-request-button {
+    width: 300px;
+}
+
+/* Invert the order of the send code button */
+#okta-sign-in .mfa-verify-passcode .link-button {
+    float: left;
+}
+
+/* Invert the order of the enter code input */
+#okta-sign-in .mfa-verify-passcode .auth-passcode {
+    float: right;
+}

@@ -52,6 +52,31 @@
       >
       Login w/auto click
       </router-link>
+      <router-link
+        id="login-button"
+        class="ui primary button"
+        role="button"
+        to="/loginWithCustomBranding?client=softpro"
+      >
+      Login w/custom branding - Softpro
+      </router-link>
+      <router-link
+        id="login-button"
+        class="ui primary button"
+        role="button"
+        to="/loginWithCustomBranding?client=InHere"
+      >
+      Login w/custom branding - InHere
+      </router-link>
+      <router-link
+        id="login-button"
+        class="ui primary button"
+        style="margin-top: 4px;"
+        role="button"
+        to="/loginWithCustomCss"
+      >
+      Login w/custom css
+      </router-link>
     </div>
 
     <div v-if="this.$parent.authenticated">

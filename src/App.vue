@@ -47,6 +47,27 @@
         Login w/auto click
         </router-link>
         <router-link
+        to="/loginWithCustomBranding?client=Softpro"
+        class="item"
+        v-if="!authenticated"
+        >
+        Login w/custom branding - Softpro
+        </router-link>
+        <router-link
+        to="/loginWithCustomBranding?client=Inhere"
+        class="item"
+        v-if="!authenticated"
+        >
+        Login w/custom branding - InHere
+        </router-link>
+        <router-link
+        to="/loginWithCustomCss"
+        class="item"
+        v-if="!authenticated"
+        >
+        Login w/custom css
+        </router-link>
+        <router-link
           to="/messages"
           class="item"
           id="messages-button"

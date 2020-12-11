@@ -107,7 +107,8 @@ export default {
             float: right;
         }
         `
-        document.querySelector('style').parentNode.appendChild(stylesheet);
+
+        document.querySelector('head').appendChild(stylesheet);
     }
 
     function removeCustomStyles() {
